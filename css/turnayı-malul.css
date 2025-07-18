@@ -1,0 +1,239 @@
+:root {
+  --bg-color: #0a0a0a;
+  --text-color: #e0e0e0;
+  --card-bg: #222;
+  --card-hover-bg: rgba(34, 34, 34, 0.8);
+  --shadow-light: rgba(255, 255, 255, 0.15);
+  --shadow-dark: rgba(0, 0, 0, 0.85);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+::selection {
+  background-color: black;
+  color: white;
+}
+::-moz-selection {
+  background-color: black;
+  color: white;
+}
+
+::selection,
+::-moz-selection {
+  background-color: black;
+  color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 60px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-y: auto;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1rem 1rem;
+  animation: fadeInDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+  will-change: opacity, transform;
+  user-select: text;
+}
+
+header h1 {
+  font-family: 'Lora', serif;
+  font-size: 2.7rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: #fff;
+  transition: color 0.3s ease;
+  user-select: text;
+}
+
+header p {
+  font-style: italic;
+  color: #888;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  user-select: text;
+}
+
+main {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  flex: 1;
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+  will-change: opacity, transform;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.content-box {
+  position: relative;
+  background-color: var(--card-bg);
+  padding: 2rem 2.5rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px var(--shadow-dark);
+  user-select: text;
+  color: #eee;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.content-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/turnayı-malul/turnayı-malul.jpg')
+    center/cover no-repeat;
+  opacity: 0.25;
+  filter: brightness(0.6);
+  border-radius: 14px;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.content-box:hover::before,
+.content-box:focus-within::before {
+  opacity: 0.35;
+}
+
+.content-box:hover,
+.content-box:focus-within {
+  box-shadow: 0 12px 30px var(--shadow-light);
+  background-color: var(--card-hover-bg);
+  cursor: default;
+}
+
+.content-box > * {
+  position: relative;
+  z-index: 1;
+}
+
+h2 {
+  font-family: 'Lora', serif;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  color: #fff;
+  user-select: none;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ddd;
+  font-style: italic;
+  margin-bottom: 2.2rem;
+  user-select: text;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  white-space: pre-line;
+}
+
+a.back-link {
+  display: inline-block;
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #bbb;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+  will-change: color, border-bottom-color;
+  cursor: pointer;
+  user-select: none;
+}
+
+a.back-link:hover,
+a.back-link:focus {
+  color: #fff;
+  border-bottom-color: #fff;
+  outline: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #000;
+  color: #777;
+  text-align: center;
+  line-height: 60px;
+  font-size: 0.9rem;
+  border-top: 1px solid #222;
+  z-index: 100;
+  user-select: none;
+  will-change: background-color, color;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  main {
+    max-width: 90%;
+    padding: 0 1rem;
+  }
+
+  .content-box {
+    padding: 1.5rem 1.8rem;
+    border-radius: 12px;
+  }
+
+  footer {
+    height: 50px;
+    line-height: 50px;
+    font-size: 0.8rem;
+  }
+}

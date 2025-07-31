@@ -108,7 +108,7 @@ main {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('/vav/vav.png')
+  background: url('/la-mekan-la-zaman/la-mekan-la-zaman.png')
     center/cover no-repeat;
   opacity: 0.25;
   filter: brightness(0.6);
